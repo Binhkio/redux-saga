@@ -10,7 +10,7 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  extends: ['prettier'],
+  extends: ['airbnb', 'prettier'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',

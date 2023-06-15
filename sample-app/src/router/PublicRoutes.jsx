@@ -1,16 +1,27 @@
 import React from 'react';
-
-import routes from '../constants/routes';
 import { Navigate } from 'react-router-dom';
 
-export const PublicRoute = ({ children }) => {
-  const auth = {
-    user: 'Quan',
-  };
+import Login from '../pages/Login';
+import MinimalLayout from '../layout/MinimalLayout';
+import routes from '../constants/routes';
 
-  if (auth.user) {
-    return <Navigate to={routes.HOME} replace />;
-  }
-
-  return children;
+const PrivateRoutes = {
+  path: '/',
+  element: <MinimalLayout />,
+  children: [
+    {
+      path: '/',
+      element: <Navigate to={routes.LOGIN} />,
+    },
+    {
+      path: routes.LOGIN,
+      element: <Login />,
+    },
+    {
+      path: '*',
+      element: <Navigate to={routes.LOGIN} />,
+    },
+  ],
 };
+
+export default PrivateRoutes;

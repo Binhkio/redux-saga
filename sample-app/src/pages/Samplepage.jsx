@@ -1,6 +1,8 @@
 import React from 'react';
-import SampleContainer from '@container/SamplePage';
+import SampleContainer from '../containers/SamplePage';
 
-export const Homepage = () => {
+const Samplepage = () => {
   return <SampleContainer />;
 };
+
+export default Samplepage;

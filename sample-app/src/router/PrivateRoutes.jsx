@@ -1,16 +1,28 @@
 import React from 'react';
 
+import Homepage from '../pages/Homepage';
+import Samplepage from '../pages/Samplepage';
+import MainLayout from '../layout/MainLayout';
 import routes from '../constants/routes';
-import { Navigate } from 'react-router-dom';
+import NotFound from '../pages/NotFound';
 
-export const PrivateRoute = ({ children }) => {
-  const auth = {
-    user: 'Quan',
-  };
-
-  if (!auth.user) {
-    return <Navigate to={routes.LOGIN} state={{ from: location }} replace />;
-  }
-
-  return children;
+const PrivateRoutes = {
+  path: '/',
+  element: <MainLayout />,
+  children: [
+    {
+      path: routes.HOME,
+      element: <Homepage />,
+    },
+    {
+      path: routes.SAMPLE,
+      element: <Samplepage />,
+    },
+    {
+      path: '*',
+      element: <NotFound />,
+    },
+  ],
 };
+
+export default PrivateRoutes;

@@ -1,23 +1,17 @@
-import { Route } from 'react-router-dom';
-import Routes from '../constants/routes';
-import { PrivateRoute } from './PrivateRoutes';
-import appRoutes from './appRoutes';
-import { PublicRoute } from './PublicRoutes';
+import { useRoutes } from 'react-router-dom';
 
-export default App = () => {
-  return (
-    <Routes>
-      {appRoutes.map((route) => {
-        return route.isPrivate ? (
-          <PrivateRoute>
-            <Route path={route.path} element={route.element} />
-          </PrivateRoute>
-        ) : (
-          <PublicRoute>
-            <Route path={route.path} element={route.element} />
-          </PublicRoute>
-        );
-      })}
-    </Routes>
-  );
+import PublicRoutes from './PublicRoutes';
+import PrivateRoutes from './PrivateRoutes';
+
+const AppRoute = () => {
+  const auth = true;
+
+  if (!auth) {
+    console.log('Not Authenticated');
+    return useRoutes([PublicRoutes]);
+  }
+  console.log('Authenticated');
+  return useRoutes([PrivateRoutes]);
 };
+
+export default AppRoute;
