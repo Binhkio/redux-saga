@@ -1,6 +1,6 @@
-import { IconUser, IconBook } from '@tabler/icons';
+import { IconTimelineEventExclamation, IconBook } from '@tabler/icons';
 
-const icons = { IconUser, IconBook };
+const icons = { IconTimelineEventExclamation, IconBook };
 
 const manage = {
     id: 'manage',
@@ -8,21 +8,13 @@ const manage = {
     type: 'group',
     children: [
         {
-            id: 'manageUser',
-            title: 'User',
+            id: 'all',
+            title: 'Event Logs',
             type: 'item',
-            url: '/manage/user',
-            icon: icons.IconUser,
+            url: '/',
+            icon: icons.IconTimelineEventExclamation,
             breadcrumbs: true
         },
-        {
-            id: 'manageQuiz',
-            title: 'Quiz',
-            type: 'item',
-            url: '/manage/quiz',
-            icon: icons.IconBook,
-            breadcrumbs: true
-        }
     ]
 };
 
