@@ -1,0 +1,7 @@
+src/layout/*
+src/menu-items/*
+src/redux/*
+src/themes/*
+src/ui-component/*
+src/components/CollapseTable/*
+src/serviceWorker.js

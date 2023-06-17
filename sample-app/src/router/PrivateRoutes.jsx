@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { lazy } from 'react';
 
-import Homepage from '../pages/Homepage';
-import Samplepage from '../pages/Samplepage';
-import MainLayout from '../layout/MainLayout';
+import Loadable from '../ui-component/Loadable';
 import routes from '../constants/routes';
-import NotFound from '../pages/NotFound';
+import MainLayout from '../layout/MainLayout';
+
+const Homepage = Loadable(lazy(() => import('pages/Homepage')));
+const Samplepage = Loadable(lazy(() => import('pages/Samplepage')));
+const NotFound = Loadable(lazy(() => import('pages/NotFound')));
 
 const PrivateRoutes = {
   path: '/',

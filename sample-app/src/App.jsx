@@ -1,12 +1,26 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
+import { ThemeProvider } from '@mui/material/styles';
+import { CssBaseline, StyledEngineProvider } from '@mui/material';
+
+import themes from './themes';
+
+import NavigationScroll from './layout/NavigationScroll';
 import Routes from './router';
 
 function App() {
+  const customization = useSelector((state) => state.customization);
+
   return (
-    <BrowserRouter>
-      <Routes />
-    </BrowserRouter>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={themes(customization)}>
+        <CssBaseline />
+        <NavigationScroll>
+          <Routes />
+        </NavigationScroll>
+      </ThemeProvider>
+    </StyledEngineProvider>
   );
 }
 
